@@ -20,6 +20,7 @@ type
     Label1: TLabel;
     cdsPesquisa: TClientDataSet;
     dsPesquisa: TDataSource;
+
   private
     { Private declarations }
   public
@@ -32,5 +33,6 @@ var
 implementation
 
 {$R *.dfm}
+
 
 end.

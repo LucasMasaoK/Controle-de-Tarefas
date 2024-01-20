@@ -2,7 +2,7 @@ unit uUsuario;
 
 interface
 
-uses uAcao;
+uses uAcao, Datasnap.DBClient;
 
 type
   TUsuario = class
@@ -21,6 +21,7 @@ type
     property Acao: TAcao read FAcao write FAcao;
     function Persistir: Boolean;
     function getID: string;
+    function Pesquisar: TClientDataSet;
   end;
 
 implementation
@@ -50,18 +51,28 @@ begin
   try
     case Acao of
       acNovo:
-        Result :=usuarioDAO.Novo(Self);
+        Result := usuarioDAO.Novo(Self);
       acEditar:
         ;
       acDeletar:
-        ;
-      acPequisar:
         ;
     end;
   finally
     FreeAndNil(usuarioDAO);
   end;
 
+end;
+
+function TUsuario.Pesquisar: TClientDataSet;
+var
+  usuarioDAO: TUsuarioDAO;
+begin
+  usuarioDAO := TUsuarioDAO.Create;
+  try
+    Result := usuarioDAO.Pesquisar(Nome);
+  finally
+    FreeAndNil(usuarioDAO);
+  end;
 end;
 
 end.

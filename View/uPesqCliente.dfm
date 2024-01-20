@@ -3,10 +3,8 @@ inherited frmPesqCliente: TfrmPesqCliente
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
-    inherited editPesquisa: TLabeledEdit
-      EditLabel.ExplicitLeft = 0
-      EditLabel.ExplicitTop = -16
-      EditLabel.ExplicitWidth = 60
+    inherited btnPesquisar: TButton
+      OnClick = btnPesquisarClick
     end
   end
   inherited cdsPesquisa: TClientDataSet

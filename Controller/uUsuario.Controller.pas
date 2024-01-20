@@ -2,7 +2,7 @@ unit uUsuario.Controller;
 
 interface
 
-uses uUsuario;
+uses uUsuario, Datasnap.DBClient;
 
 type
   TUsuarioController = class
@@ -15,6 +15,7 @@ type
     constructor Create;
     destructor Destroy; override;
     function getID: string;
+    function Pesquisar : TClientDataSet;
   end;
 
 implementation
@@ -41,6 +42,11 @@ end;
 function TUsuarioController.Persistir: Boolean;
 begin
   Result := FUsuario.Persistir;
+end;
+
+function TUsuarioController.Pesquisar: TClientDataSet;
+begin
+  Result:= FUsuario.Pesquisar;
 end;
 
 end.

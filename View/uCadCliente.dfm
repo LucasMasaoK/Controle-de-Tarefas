@@ -1,11 +1,13 @@
 inherited frmCadCliente: TfrmCadCliente
   Caption = 'Cadastro Cliente'
-  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
     inherited btnSalvar: TButton
       OnClick = btnSalvarClick
+    end
+    inherited btnPesquisar: TButton
+      OnClick = btnPesquisarClick
     end
     inherited btnNovo: TButton
       OnClick = btnNovoClick

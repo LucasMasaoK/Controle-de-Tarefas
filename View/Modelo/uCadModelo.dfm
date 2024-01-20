@@ -21,7 +21,6 @@ object frmCad: TfrmCad
     Height = 63
     Align = alBottom
     TabOrder = 0
-    ExplicitWidth = 505
     object btnSalvar: TButton
       Left = 265
       Top = 16
@@ -61,7 +60,6 @@ object frmCad: TfrmCad
       Width = 75
       Height = 33
       Caption = 'Pesquisar'
-      Enabled = False
       TabOrder = 4
     end
     object btnNovo: TButton
@@ -88,7 +86,5 @@ object frmCad: TfrmCad
     Height = 260
     Align = alClient
     TabOrder = 1
-    ExplicitTop = -6
-    ExplicitWidth = 613
   end
 end

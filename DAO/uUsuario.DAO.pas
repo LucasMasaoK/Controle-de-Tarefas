@@ -2,7 +2,7 @@ unit uUsuario.DAO;
 
 interface
 
-uses uDM, uUsuario;
+uses uDM, uUsuario, Datasnap.DBClient;
 
 type
   TUsuarioDAO = class
@@ -15,6 +15,7 @@ type
     destructor Destroy; override;
     function getID: string;
     function Novo(oUsuario: TUsuario): Boolean;
+    function Pesquisar(Nome: string): TClientDataSet;
   published
 
   end;
@@ -22,7 +23,9 @@ type
 implementation
 
 uses
-  System.SysUtils, Data.SqlExpr;
+  System.SysUtils, Data.FMTBcd, SimpleDS, Data.DB,
+  Data.SqlExpr, DBXDynalink, Data.DBXFirebird,
+  Datasnap.Provider;
 
 { TClienteDAO }
 
@@ -51,8 +54,9 @@ begin
     with sqlNovo, oUsuario do
     begin
       sqlNovo := FConexao.getConexao(sqlNovo);
-      CommandText := 'insert into USUARIO values (' + QuotedStr(IntToStr(Codigo)) + ', ' +
-        QuotedStr(Nome) + ', ' + QuotedStr(DIREITO) + ', ' + QuotedStr(SENHA) + ')';
+      CommandText := 'insert into USUARIO values (' + QuotedStr(IntToStr(Codigo)
+        ) + ', ' + QuotedStr(Nome) + ', ' + QuotedStr(DIREITO) + ', ' +
+        QuotedStr(SENHA) + ')';
       try
         ExecSQL;
         Result := True;
@@ -67,6 +71,30 @@ begin
     end;
   finally
     FreeAndNil(sqlNovo);
+  end;
+end;
+
+function TUsuarioDAO.Pesquisar(Nome: string): TClientDataSet;
+var
+  sqlPesquisar: TSQLQuery;
+  dspPesquisar: TDataSetProvider;
+  cdsPesquisar: TClientDataSet;
+begin
+  sqlPesquisar := TSQLQuery.Create(Nil);
+  dspPesquisar := TDataSetProvider.Create(Nil);;
+  cdsPesquisar := TClientDataSet.Create(Nil);;
+  try
+    sqlPesquisar := FConexao.getConexao(sqlPesquisar);
+    sqlPesquisar.CommandText := 'SELECT * FROM USUARIO WHERE NOME LIKE' +
+      QuotedStr(Nome + '%s');
+    dspPesquisar.DataSet := sqlPesquisar;
+    cdsPesquisar.SetProvider(dspPesquisar);
+    cdsPesquisar.Open;
+    cdsPesquisar.RecordCount;
+    Result := cdsPesquisar;
+  finally
+    FreeAndNil(dspPesquisar);
+    FreeAndNil(sqlPesquisar);
   end;
 end;
 

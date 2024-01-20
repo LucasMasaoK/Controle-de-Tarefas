@@ -18,7 +18,7 @@ type
     Label1: TLabel;
     procedure btnSalvarClick(Sender: TObject);
     procedure btnNovoClick(Sender: TObject);
-    procedure FormShow(Sender: TObject);
+    procedure btnPesquisarClick(Sender: TObject);
   private
     FController: TUsuarioController;
     procedure verificaSenha;
@@ -34,16 +34,28 @@ var
 
 implementation
 
-uses uAcao;
+uses uAcao, uPesqCliente;
 {$R *.dfm}
 { TfrmCadCliente }
 
 procedure TfrmCadCliente.btnNovoClick(Sender: TObject);
 begin
   inherited;
+  FController := TUsuarioController.Create;
   FController.Usuario.Acao := uAcao.acNovo;
   editCodigo.Text := FController.Usuario.getID;
   editNome.SetFocus;
+end;
+
+procedure TfrmCadCliente.btnPesquisarClick(Sender: TObject);
+begin
+  inherited;
+  Application.CreateForm(TfrmPesqCliente, frmPesqCliente);
+  try
+    frmPesqCliente.ShowModal;
+  finally
+    FreeAndNil(frmPesqCliente);
+  end;
 end;
 
 procedure TfrmCadCliente.btnSalvarClick(Sender: TObject);
@@ -56,12 +68,6 @@ destructor TfrmCadCliente.Destroy;
 begin
   FreeAndNil(FController);
   inherited;
-end;
-
-procedure TfrmCadCliente.FormShow(Sender: TObject);
-begin
-  inherited;
-  FController := TUsuarioController.Create;
 end;
 
 function TfrmCadCliente.retTipo(index: integer): String;

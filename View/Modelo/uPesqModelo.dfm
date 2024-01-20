@@ -20,10 +20,6 @@ object frmPesq: TfrmPesq
     Height = 317
     Align = alClient
     TabOrder = 0
-    ExplicitLeft = -100
-    ExplicitTop = -29
-    ExplicitWidth = 605
-    ExplicitHeight = 260
     object DBGrid1: TDBGrid
       Left = 1
       Top = 1
@@ -46,7 +42,6 @@ object frmPesq: TfrmPesq
     Height = 63
     Align = alTop
     TabOrder = 1
-    ExplicitTop = -5
     object Label1: TLabel
       Left = 343
       Top = 3
@@ -60,7 +55,6 @@ object frmPesq: TfrmPesq
       Width = 75
       Height = 33
       Caption = 'Pesquisar'
-      Enabled = False
       TabOrder = 0
     end
     object btnNovo: TButton
