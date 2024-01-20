@@ -1,0 +1,22 @@
+unit uUsuario.Controller;
+
+interface
+
+type
+  TUsuarioController = class
+  private
+
+  public
+    function Persister: Boolean;
+  end;
+
+implementation
+uses uUsuario;
+{ TClienteController }
+
+function TUsuarioController.Persister: Boolean;
+begin
+
+end;
+
+end.

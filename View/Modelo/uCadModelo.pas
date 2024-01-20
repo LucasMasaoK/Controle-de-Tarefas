@@ -20,7 +20,6 @@ type
     btnEditar: TButton;
     procedure btnSairClick(Sender: TObject);
   private
-    procedure Limpar(Form: TForm);
   public
     { Public declarations }
   end;

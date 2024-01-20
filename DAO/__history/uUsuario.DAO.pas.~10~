@@ -1,0 +1,45 @@
+unit uUsuario.DAO;
+
+interface
+
+uses uDM, uUsuario;
+
+type
+  TUsuarioDAO = class
+  private
+    FConexao: TDM;
+
+  public
+    property Conexao: TDM read FConexao write FConexao;
+    constructor Create;
+    destructor Destroy; override;
+    function getID: string;
+    function Novo(oUsuario: TUsuario): Boolean;
+  published
+
+  end;
+
+implementation
+
+uses
+  System.SysUtils;
+
+{ TClienteDAO }
+
+constructor TUsuarioDAO.Create;
+begin
+  FConexao := TDM.Create;
+end;
+
+destructor TUsuarioDAO.Destroy;
+begin
+  FreeAndNil(FConexao);
+  inherited;
+end;
+
+function TUsuarioDAO.getID: string;
+begin
+  Result := FConexao.getID('USUARIO');
+end;
+
+end.

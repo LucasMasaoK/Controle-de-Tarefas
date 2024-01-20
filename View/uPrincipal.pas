@@ -14,6 +14,7 @@ type
     Cadastro1: TMenuItem;
     Cliente1: TMenuItem;
     arefa1: TMenuItem;
+    arefa2: TMenuItem;
     procedure Cliente1Click(Sender: TObject);
   private
     { Private declarations }

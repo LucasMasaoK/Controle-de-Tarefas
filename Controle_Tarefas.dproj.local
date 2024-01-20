@@ -6,13 +6,34 @@
     <Transaction>2024/01/19 21:21:08.000.313,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\View\uPrincipal.dfm</Transaction>
     <Transaction>2024/01/19 21:21:19.000.085,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Controle_Tarefas.dproj</Transaction>
     <Transaction>2024/01/19 21:25:02.000.956,=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
-    <Transaction>2024/01/19 21:25:23.000.212,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\View\Modelo\uCadModelo.pas</Transaction>
     <Transaction>2024/01/19 21:25:23.000.212,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.dfm=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\View\Modelo\uCadModelo.dfm</Transaction>
+    <Transaction>2024/01/19 21:25:23.000.212,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\View\Modelo\uCadModelo.pas</Transaction>
     <Transaction>2024/01/19 21:30:22.784,=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
     <Transaction>2024/01/19 21:30:35.981,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\View\uCadCliente.pas=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
     <Transaction>2024/01/19 21:30:35.981,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\View\uCadCliente.dfm=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.dfm</Transaction>
     <Transaction>2024/01/19 21:42:41.689,=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
     <Transaction>2024/01/19 21:42:52.677,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\View\uCadTarefa.pas=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
     <Transaction>2024/01/19 21:42:52.677,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\View\uCadTarefa.dfm=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.dfm</Transaction>
+    <Transaction>2024/01/20 09:25:24.529,=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
+    <Transaction>2024/01/20 09:32:13.802,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\View\Modelo\uPesqModelo.dfm=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.dfm</Transaction>
+    <Transaction>2024/01/20 09:32:13.802,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\View\Modelo\uPesqModelo.pas=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
+    <Transaction>2024/01/20 09:33:45.917,=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
+    <Transaction>2024/01/20 09:34:05.685,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\View\uPesqCliente.pas=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
+    <Transaction>2024/01/20 09:34:05.685,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\View\uPesqCliente.dfm=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.dfm</Transaction>
+    <Transaction>2024/01/20 09:51:23.326,=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
+    <Transaction>2024/01/20 09:51:56.130,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\DAO\uDM.pas=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
+    <Transaction>2024/01/20 09:53:48.753,=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
+    <Transaction>2024/01/20 10:10:32.045,=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
+    <Transaction>2024/01/20 10:10:51.236,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Model\uClientes.pas=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
+    <Transaction>2024/01/20 10:11:55.659,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Model\uUsuario.pas=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Model\uClientes.pas</Transaction>
+    <Transaction>2024/01/20 10:13:49.405,=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
+    <Transaction>2024/01/20 10:14:11.592,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Model\Commun\uAcao.pas=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
+    <Transaction>2024/01/20 10:20:21.244,=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
+    <Transaction>2024/01/20 10:20:53.907,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\DAO\uCliente.DAO.pas=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
+    <Transaction>2024/01/20 10:28:32.251,=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
+    <Transaction>2024/01/20 10:28:56.025,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Controller\uCliente.Controller.pas=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
+    <Transaction>2024/01/20 10:31:31.308,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Controller\uUsuario.Controller.pas=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Controller\uCliente.Controller.pas</Transaction>
+    <Transaction>2024/01/20 10:37:09.801,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\DAO\uUsuario.DAO.pas=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\DAO\uCliente.DAO.pas</Transaction>
+    <Transaction>2024/01/20 11:25:44.577,=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
   </Transactions>
 </BorlandProject>

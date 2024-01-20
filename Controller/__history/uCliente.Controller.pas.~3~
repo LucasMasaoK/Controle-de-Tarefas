@@ -1,0 +1,15 @@
+unit uCliente.Controller;
+
+interface
+
+type
+  TClienteController = class
+  private
+
+  public
+
+  end;
+
+implementation
+
+end.

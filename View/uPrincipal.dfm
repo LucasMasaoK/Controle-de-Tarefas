@@ -30,9 +30,12 @@ object frmPrincipal: TfrmPrincipal
         Caption = 'Cliente'
         OnClick = Cliente1Click
       end
+      object arefa2: TMenuItem
+        Caption = 'Tarefa'
+      end
     end
     object arefa1: TMenuItem
-      Caption = 'Tarefa'
+      Caption = 'Controle Tarefa'
     end
   end
 end

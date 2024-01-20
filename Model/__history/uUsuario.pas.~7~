@@ -1,0 +1,43 @@
+unit uUsuario;
+
+interface
+
+uses uAcao;
+
+type
+  TUsuario = class
+  private
+    FCodigo: integer;
+    FNome: string;
+    FDireito: string;
+    FSenha: string;
+    FAcao: TAcao;
+
+  public
+    property Codigo: integer read FCodigo write FCodigo;
+    property Nome: string read FNome write FNome;
+    property Direito: string read FDireito write FDireito;
+    property Senha: string read FSenha write FSenha;
+    property Acao: TAcao read FAcao write FAcao;
+    function Persistir: Boolean;
+  end;
+
+implementation
+
+{ TUsuario }
+
+function TUsuario.Persistir: Boolean;
+begin
+  case Acao of
+    acNovo:
+      ;
+    acEditar:
+      ;
+    acDeletar:
+      ;
+    acPequisar:
+      ;
+  end;
+end;
+
+end.

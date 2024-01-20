@@ -1,0 +1,40 @@
+unit uUsuario.Controller;
+
+interface
+
+uses uUsuario;
+
+type
+  TUsuarioController = class
+  private
+    FUsuario: TUsuario;
+
+  public
+    property Usuario: TUsuario read FUsuario write FUsuario;
+    function Persister: Boolean;
+    constructor Create;
+    destructor Destroy; override;
+  end;
+
+implementation
+
+uses
+  System.SysUtils;
+
+constructor TUsuarioController.Create;
+begin
+  FUsuario := TUsuario.Create;
+end;
+
+destructor TUsuarioController.Destroy;
+begin
+  FreeAndNil(FUsuario);
+  inherited;
+end;
+
+function TUsuarioController.Persister: Boolean;
+begin
+  Result := FUsuario.Persistir;
+end;
+
+end.

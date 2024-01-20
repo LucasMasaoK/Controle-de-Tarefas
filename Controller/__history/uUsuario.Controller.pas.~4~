@@ -1,0 +1,25 @@
+unit uUsuario.Controller;
+
+interface
+
+uses uUsuario;
+
+type
+  TUsuarioController = class
+  private
+
+  public
+    property Usuario: TUsuario read FUsuario write FUsuario;
+    function Persister: Boolean;
+  end;
+
+implementation
+
+{ TClienteController }
+
+function TUsuarioController.Persister: Boolean;
+begin
+
+end;
+
+end.

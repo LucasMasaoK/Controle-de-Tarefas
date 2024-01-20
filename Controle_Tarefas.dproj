@@ -114,6 +114,19 @@
             <Form>frmCadTarefa</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="View\Modelo\uPesqModelo.pas">
+            <Form>frmPesq</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="View\uPesqCliente.pas">
+            <Form>frmPesqCliente</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="DAO\uDM.pas"/>
+        <DCCReference Include="Model\uUsuario.pas"/>
+        <DCCReference Include="Model\Commun\uAcao.pas"/>
+        <DCCReference Include="DAO\uUsuario.DAO.pas"/>
+        <DCCReference Include="Controller\uUsuario.Controller.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

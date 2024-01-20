@@ -1,0 +1,30 @@
+unit uUsuario.Controller;
+
+interface
+
+uses uUsuario;
+
+type
+  TUsuarioController = class
+  private
+    FUsuario: TUsuario;
+
+  public
+    property Usuario: TUsuario read FUsuario write FUsuario;
+    function Persister: Boolean;
+    constructor Create;
+  end;
+
+implementation
+
+constructor TUsuarioController.Create;
+begin
+  FUsuario := TUsuario.Create;
+end;
+
+function TUsuarioController.Persister: Boolean;
+begin
+  Result := FUsuario;
+end;
+
+end.

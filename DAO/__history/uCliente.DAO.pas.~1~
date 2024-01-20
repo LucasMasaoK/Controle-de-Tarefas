@@ -1,0 +1,21 @@
+unit uCliente.DAO;
+
+interface
+
+type
+  TClienteDAO = class
+  private
+
+  protected
+
+  public
+    constructor Create; override;
+    destructor Destroy; override;
+
+  published
+
+  end;
+
+implementation
+
+end.
