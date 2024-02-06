@@ -3,7 +3,8 @@ unit uPrincipal;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus;
 
 type
@@ -16,6 +17,7 @@ type
     arefa1: TMenuItem;
     arefa2: TMenuItem;
     procedure Cliente1Click(Sender: TObject);
+    procedure arefa2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -29,15 +31,25 @@ implementation
 
 {$R *.dfm}
 
-uses uCadCliente;
+uses uCadUsuario, uCadTarefa;
+
+procedure TfrmPrincipal.arefa2Click(Sender: TObject);
+begin
+  Application.CreateForm(TfrmCadTarefa, frmCadTarefa);
+  try
+    frmCadTarefa.ShowModal;
+  finally
+    FreeAndNil(frmCadTarefa);
+  end;
+end;
 
 procedure TfrmPrincipal.Cliente1Click(Sender: TObject);
 begin
-  Application.CreateForm(TfrmCadCliente,frmCadCliente);
+  Application.CreateForm(TfrmCadUsuario, frmCadUsuario);
   try
-    frmCadCliente.ShowModal
+    frmCadUsuario.ShowModal
   finally
-    FreeAndNil(frmCadCliente);
+    FreeAndNil(frmCadUsuario);
   end;
 end;
 

@@ -32,6 +32,7 @@ object frmPrincipal: TfrmPrincipal
       end
       object arefa2: TMenuItem
         Caption = 'Tarefa'
+        OnClick = arefa2Click
       end
     end
     object arefa1: TMenuItem

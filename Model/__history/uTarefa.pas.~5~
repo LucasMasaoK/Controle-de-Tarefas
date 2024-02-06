@@ -1,0 +1,20 @@
+unit uTarefa;
+
+interface
+
+type
+  Tarefa = class
+  private
+    FCodigo: integer;
+    FNome: string;
+    FTipo: string;
+
+  public
+    property Codigo: integer read FCodigo write FCodigo;
+    property Nome: string read FNome write FNome;
+    property Tipo: string read FTipo write FTipo;
+  end;
+
+implementation
+
+end.

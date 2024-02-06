@@ -1,0 +1,59 @@
+unit uCadTarefa;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uCadModelo, Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TfrmCadTarefa = class(TfrmCad)
+    editCodigo: TLabeledEdit;
+    editNome: TLabeledEdit;
+    comboTipo: TComboBox;
+    Label1: TLabel;
+    procedure btnSalvarClick(Sender: TObject);
+  private
+    procedure Salvar;
+    function retornaTipo: String;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCadTarefa: TfrmCadTarefa;
+
+implementation
+
+{$R *.dfm}
+{ TfrmCad1 }
+
+procedure TfrmCadTarefa.btnSalvarClick(Sender: TObject);
+begin
+  inherited;
+  Self.Salvar;
+end;
+
+function TfrmCadTarefa.retornaTipo: String;
+begin
+  case comboTipo.ItemIndex of
+    0:
+      Result := 'D';
+    1:
+      Result := 'S';
+    2:
+      Result := 'Q';
+    3:
+      Result := 'M';
+  end;
+end;
+
+procedure TfrmCadTarefa.Salvar;
+begin
+  if editNome.Text = EmptyStr then
+    ShowMessage('Preenchimento obrigatório campo NOME');
+  retornaTipo;
+end;
+
+end.

@@ -5,19 +5,25 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uCadModelo, Vcl.StdCtrls, Vcl.ExtCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uCadModelo, Vcl.StdCtrls, Vcl.ExtCtrls,
+  uTarefa.Controller;
 
 type
   TfrmCadTarefa = class(TfrmCad)
     editCodigo: TLabeledEdit;
     editNome: TLabeledEdit;
-    comboDireito: TComboBox;
+    comboTipo: TComboBox;
     Label1: TLabel;
     procedure btnSalvarClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure btnNovoClick(Sender: TObject);
   private
+    FTarefaController: TTarefaController;
     procedure Salvar;
+    function retornaTipo: String;
   public
-    { Public declarations }
+    property TarefaController: TTarefaController read FTarefaController
+      write FTarefaController;
   end;
 
 var
@@ -25,8 +31,16 @@ var
 
 implementation
 
+uses uAcao;
 {$R *.dfm}
 { TfrmCad1 }
+
+procedure TfrmCadTarefa.btnNovoClick(Sender: TObject);
+begin
+  inherited;
+  TarefaController.Tarefa.Acao := acNovo;
+  editCodigo.Text := TarefaController.getID;
+end;
 
 procedure TfrmCadTarefa.btnSalvarClick(Sender: TObject);
 begin
@@ -34,11 +48,40 @@ begin
   Self.Salvar;
 end;
 
+procedure TfrmCadTarefa.FormCreate(Sender: TObject);
+begin
+  inherited;
+  TarefaController := TTarefaController.Create;
+end;
+
+function TfrmCadTarefa.retornaTipo: String;
+begin
+  case comboTipo.ItemIndex of
+    0:
+      Result := 'D';
+    1:
+      Result := 'S';
+    2:
+      Result := 'Q';
+    3:
+      Result := 'M';
+  end;
+end;
+
 procedure TfrmCadTarefa.Salvar;
 begin
   if editNome.Text = EmptyStr then
     ShowMessage('Preenchimento obrigatório campo NOME');
-
+  with TarefaController.Tarefa do
+  begin
+    Codigo := StrToInt(editCodigo.Text);
+    Nome := editNome.Text;
+    Tipo := retornaTipo;
+  end;
+  if TarefaController.Persistir then
+    ShowMessage('Operação realizada com sucesso!')
+  else
+    ShowMessage('Erro ao realizar operação!');
 end;
 
 end.

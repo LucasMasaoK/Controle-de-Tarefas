@@ -1,0 +1,69 @@
+unit uPesqCliente;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uPesqModelo, Data.DB, Vcl.StdCtrls,
+  Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids, Datasnap.DBClient, uUsuario.Controller;
+
+type
+  TfrmPesqCliente = class(TfrmPesq)
+    procedure btnPesquisarClick(Sender: TObject);
+  private
+    FusuarioController: TUsuarioController;
+    procedure Pesquisar;
+    procedure Editar;
+  public
+    property usuarioController: TUsuarioController read FusuarioController
+      write FusuarioController;
+  end;
+
+var
+  frmPesqCliente: TfrmPesqCliente;
+
+implementation
+
+uses
+  uAcao, uCadUsuario;
+{$R *.dfm}
+{ TfrmPesqCliente }
+
+procedure TfrmPesqCliente.btnPesquisarClick(Sender: TObject);
+begin
+  inherited;
+  Self.Pesquisar;
+end;
+
+procedure TfrmPesqCliente.Editar;
+begin
+  with frmCadUsuario, cdsPesquisa do
+  begin
+    editCodigo.Text := FieldByName('CODIGO').AsString;
+    editNome.Text := FieldByName('NOME').AsString;
+    case FieldByName('DIREITO').AsString of
+      'O':
+        comboDireito.ItemIndex := 0;
+      'S':
+        comboDireito.ItemIndex := 1;
+    end;
+    editSenha.Text := FieldByName('SENHA').AsString;
+  end;
+  Close;
+end;
+
+procedure TfrmPesqCliente.Pesquisar;
+begin
+  FusuarioController := TUsuarioController.Create;
+  try
+    FusuarioController.Usuario.Acao := uAcao.acPequisar;
+    FusuarioController.Usuario.Nome := editPesquisa.Text;
+    cdsPesquisa := FusuarioController.Pesquisar;
+    dsPesquisa.DataSet := cdsPesquisa;
+  finally
+    FreeAndNil(FusuarioController);
+  end;
+end;
+
+end.

@@ -1,0 +1,15 @@
+unit uTarefa;
+
+interface
+
+type
+  Tarefa = class
+  private
+
+  public
+
+  end;
+
+implementation
+
+end.

@@ -53,9 +53,9 @@ begin
       acNovo:
         Result := usuarioDAO.Novo(Self);
       acEditar:
-        ;
+        Result := usuarioDAO.Editar(Self);
       acDeletar:
-        ;
+        Result := usuarioDAO.Excluir(Self);
     end;
   finally
     FreeAndNil(usuarioDAO);

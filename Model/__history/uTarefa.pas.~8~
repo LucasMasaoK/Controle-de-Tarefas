@@ -1,0 +1,33 @@
+unit uTarefa;
+
+interface
+
+uses
+  uAcao;
+
+type
+  TTarefa = class
+  private
+    FCodigo: integer;
+    FNome: string;
+    FTipo: string;
+    FAcao: TAcao;
+
+  public
+    property Codigo: integer read FCodigo write FCodigo;
+    property Nome: string read FNome write FNome;
+    property Tipo: string read FTipo write FTipo;
+    property Acao: TAcao read FAcao write FAcao;
+    function Persistir: Boolean;
+  end;
+
+implementation
+
+{ Tarefa }
+
+function Tarefa.Persistir: Boolean;
+begin
+
+end;
+
+end.

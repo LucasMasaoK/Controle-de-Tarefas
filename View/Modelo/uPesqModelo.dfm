@@ -11,6 +11,7 @@ object frmPesq: TfrmPesq
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poMainFormCenter
   PixelsPerInch = 96
   TextHeight = 13
   object Panel2: TPanel
@@ -20,7 +21,7 @@ object frmPesq: TfrmPesq
     Height = 317
     Align = alClient
     TabOrder = 0
-    object DBGrid1: TDBGrid
+    object gridPesquisa: TDBGrid
       Left = 1
       Top = 1
       Width = 723

@@ -1,14 +1,25 @@
 inherited frmCadTarefa: TfrmCadTarefa
   Caption = 'Cadastro Tarefa'
+  ClientHeight = 307
+  ClientWidth = 602
+  OnCreate = FormCreate
+  ExplicitWidth = 618
+  ExplicitHeight = 346
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
+    Top = 244
+    Width = 602
     inherited btnSalvar: TButton
       OnClick = btnSalvarClick
     end
+    inherited btnNovo: TButton
+      OnClick = btnNovoClick
+    end
   end
   inherited Panel2: TPanel
-    ExplicitWidth = 605
+    Width = 602
+    Height = 244
     object Label1: TLabel
       Left = 22
       Top = 133
@@ -38,7 +49,7 @@ inherited frmCadTarefa: TfrmCadTarefa
       MaxLength = 30
       TabOrder = 1
     end
-    object comboDireito: TComboBox
+    object comboTipo: TComboBox
       Left = 22
       Top = 152
       Width = 145

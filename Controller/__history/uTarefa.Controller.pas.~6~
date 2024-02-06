@@ -1,0 +1,26 @@
+unit uTarefa.Controller;
+
+interface
+
+uses uTarefa;
+
+type
+  TTarefaController = class
+  private
+    FTarefa: TTarefa;
+
+  public
+    property Tarefa: TTarefa read FTarefa write FTarefa;
+    function Persistir: Boolean;
+  end;
+
+implementation
+
+{ TTarefaController }
+
+function TTarefaController.Persistir: Boolean;
+begin
+  Result :=
+end;
+
+end.

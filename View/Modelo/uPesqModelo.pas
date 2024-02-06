@@ -15,7 +15,7 @@ type
     btnNovo: TButton;
     btnEditar: TButton;
     editPesquisa: TLabeledEdit;
-    DBGrid1: TDBGrid;
+    gridPesquisa: TDBGrid;
     comboDireito: TComboBox;
     Label1: TLabel;
     cdsPesquisa: TClientDataSet;

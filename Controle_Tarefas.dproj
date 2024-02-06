@@ -106,8 +106,8 @@
             <Form>frmCad</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="View\uCadCliente.pas">
-            <Form>frmCadCliente</Form>
+        <DCCReference Include="View\uCadUsuario.pas">
+            <Form>frmCadUsuario</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="View\uCadTarefa.pas">
@@ -127,6 +127,9 @@
         <DCCReference Include="Model\Commun\uAcao.pas"/>
         <DCCReference Include="DAO\uUsuario.DAO.pas"/>
         <DCCReference Include="Controller\uUsuario.Controller.pas"/>
+        <DCCReference Include="Model\uTarefa.pas"/>
+        <DCCReference Include="Controller\uTarefa.Controller.pas"/>
+        <DCCReference Include="DAO\uTarefa.DAO.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

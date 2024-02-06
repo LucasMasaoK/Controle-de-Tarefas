@@ -1,0 +1,23 @@
+unit uTarefa.Controller;
+
+interface
+
+type
+  TTarefaController = class
+  private
+
+  public
+    function Persistir: Boolean;
+  end;
+
+implementation
+uses
+uTarefa;
+{ TTarefaController }
+
+function TTarefaController.Persistir: Boolean;
+begin
+
+end;
+
+end.

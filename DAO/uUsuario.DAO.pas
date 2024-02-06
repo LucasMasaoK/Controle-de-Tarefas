@@ -15,6 +15,8 @@ type
     destructor Destroy; override;
     function getID: string;
     function Novo(oUsuario: TUsuario): Boolean;
+    function Editar(oUsuario: TUsuario): Boolean;
+    function Excluir(oUsuario: TUsuario): Boolean;
     function Pesquisar(Nome: string): TClientDataSet;
   published
 
@@ -40,6 +42,63 @@ begin
   inherited;
 end;
 
+function TUsuarioDAO.Editar(oUsuario: TUsuario): Boolean;
+var
+  sqlEditar: TSQLQuery;
+begin
+  sqlEditar := TSQLQuery.Create(nil);
+  try
+    with sqlEditar do
+    begin
+      SQLConnection := FConexao.DMConexao;
+      CommandText := 'update USUARIO ' + 'set NOME = ' +
+        QuotedStr(oUsuario.Nome) + ' , ' + 'DIREITO = ' +
+        QuotedStr(oUsuario.Direito) + ' , ' + 'SENHA = ' +
+        QuotedStr(oUsuario.Senha) + ' where CODIGO = ' +
+        IntToStr(oUsuario.Codigo);
+      try
+        ExecSQL;
+        Result := True;
+      except
+        on E: Exception do
+        begin
+          raise Exception.Create('Error Message' + E.Message);
+          Result := False;
+        end;
+      end;
+    end;
+  finally
+    FreeAndNil(sqlEditar);
+  end;
+end;
+
+function TUsuarioDAO.Excluir(oUsuario: TUsuario): Boolean;
+var
+  sqlExcluir: TSQLQuery;
+begin
+  sqlExcluir := TSQLQuery.Create(nil);
+  try
+    with sqlExcluir do
+    begin
+      SQLConnection := FConexao.DMConexao;
+      CommandText := 'DELETE FROM USUARIO WHERE CODIGO= ' +
+        IntToStr(oUsuario.Codigo);
+      try
+        ExecSQL();
+        Result := True;
+      except
+        on E: Exception do
+        begin
+          raise Exception.Create('Error Message' + E.Message);
+          Result := False;
+        end;
+      end;
+    end;
+  finally
+    FreeAndNil(sqlExcluir);
+  end;
+end;
+
 function TUsuarioDAO.getID: string;
 begin
   Result := FConexao.getID('USUARIO');
@@ -55,8 +114,8 @@ begin
     begin
       sqlNovo := FConexao.getConexao(sqlNovo);
       CommandText := 'insert into USUARIO values (' + QuotedStr(IntToStr(Codigo)
-        ) + ', ' + QuotedStr(Nome) + ', ' + QuotedStr(DIREITO) + ', ' +
-        QuotedStr(SENHA) + ')';
+        ) + ', ' + QuotedStr(Nome) + ', ' + QuotedStr(Direito) + ', ' +
+        QuotedStr(Senha) + ')';
       try
         ExecSQL;
         Result := True;
@@ -86,7 +145,7 @@ begin
   try
     sqlPesquisar := FConexao.getConexao(sqlPesquisar);
     sqlPesquisar.CommandText := 'SELECT * FROM USUARIO WHERE NOME LIKE' +
-      QuotedStr(Nome + '%s');
+      QuotedStr(Nome + '%');
     dspPesquisar.DataSet := sqlPesquisar;
     cdsPesquisar.SetProvider(dspPesquisar);
     cdsPesquisar.Open;
