@@ -17,6 +17,8 @@ type
     procedure btnSalvarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnNovoClick(Sender: TObject);
+    procedure btnEditarClick(Sender: TObject);
+    procedure btnPesquisarClick(Sender: TObject);
   private
     FTarefaController: TTarefaController;
     procedure Salvar;
@@ -31,15 +33,32 @@ var
 
 implementation
 
-uses uAcao;
+uses uAcao, uPesqTarefa;
 {$R *.dfm}
 { TfrmCad1 }
+
+procedure TfrmCadTarefa.btnEditarClick(Sender: TObject);
+begin
+  inherited;
+  TarefaController.Tarefa.Acao := acEditar;
+end;
 
 procedure TfrmCadTarefa.btnNovoClick(Sender: TObject);
 begin
   inherited;
   TarefaController.Tarefa.Acao := acNovo;
   editCodigo.Text := TarefaController.getID;
+end;
+
+procedure TfrmCadTarefa.btnPesquisarClick(Sender: TObject);
+begin
+  inherited;
+  Application.CreateForm(TfrmPesTarefa, frmPesTarefa);
+  try
+    frmPesTarefa.ShowModal;
+  finally
+    FreeAndNil(frmPesTarefa);
+  end;
 end;
 
 procedure TfrmCadTarefa.btnSalvarClick(Sender: TObject);

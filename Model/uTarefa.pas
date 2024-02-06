@@ -3,7 +3,7 @@ unit uTarefa;
 interface
 
 uses
-  uAcao;
+  uAcao, Datasnap.DBClient;
 
 type
   TTarefa = class
@@ -20,6 +20,7 @@ type
     property Acao: TAcao read FAcao write FAcao;
     function Persistir: Boolean;
     function getID: string;
+    function Pesquisar: TClientDataSet;
   end;
 
 implementation
@@ -60,6 +61,18 @@ begin
     FreeAndNil(oTarefaDAO);
   end;
 
+end;
+
+function TTarefa.Pesquisar: TClientDataSet;
+var
+  oTarefaDAO: TTarefaDAO;
+begin
+  oTarefaDAO := TTarefaDAO.Create;
+  try
+    Result := oTarefaDAO.Pesquisar(Self.Nome);
+  finally
+    FreeAndNil(oTarefaDAO);
+  end;
 end;
 
 end.

@@ -130,6 +130,10 @@
         <DCCReference Include="Model\uTarefa.pas"/>
         <DCCReference Include="Controller\uTarefa.Controller.pas"/>
         <DCCReference Include="DAO\uTarefa.DAO.pas"/>
+        <DCCReference Include="View\uPesqTarefa.pas">
+            <Form>frmPesTarefa</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

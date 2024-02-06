@@ -2,7 +2,7 @@ unit uTarefa.Controller;
 
 interface
 
-uses uTarefa;
+uses uTarefa, Datasnap.DBClient;
 
 type
   TTarefaController = class
@@ -14,6 +14,7 @@ type
     property Tarefa: TTarefa read FTarefa write FTarefa;
     function Persistir: Boolean;
     function getID: string;
+    function Pesquisar: TClientDataSet;
   end;
 
 implementation
@@ -33,6 +34,11 @@ end;
 function TTarefaController.Persistir: Boolean;
 begin
   Result := Tarefa.Persistir;
+end;
+
+function TTarefaController.Pesquisar: TClientDataSet;
+begin
+  Result := Tarefa.Pesquisar;
 end;
 
 end.

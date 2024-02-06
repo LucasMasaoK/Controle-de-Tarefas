@@ -1,0 +1,34 @@
+unit uPesqTarefa;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uPesqModelo, Data.DB, Datasnap.DBClient,
+  Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids, uTarefa.Controller;
+
+type
+  TfrmPesTarefa = class(TfrmPesq)
+  private
+    FTarefaController: TTarefaController;
+    procedure Pesquisar;
+  public
+    property TarefaController: TTarefaController read FTarefaController
+      write FTarefaController;
+  end;
+
+var
+  frmPesTarefa: TfrmPesTarefa;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmPesTarefa.Pesquisar;
+var
+begin
+
+end;
+
+end.

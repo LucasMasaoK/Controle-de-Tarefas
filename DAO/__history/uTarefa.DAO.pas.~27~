@@ -1,0 +1,119 @@
+unit uTarefa.DAO;
+
+interface
+
+uses
+  uTarefa, uDM, Datasnap.DBClient;
+
+type
+  TTarefaDAO = class
+  private
+    FConexao: TDM;
+
+  public
+
+    constructor Create;
+    property Conexao: TDM read FConexao write FConexao;
+    function Novo(oTarefa: TTarefa): Boolean;
+    function Editar(oTarefa: TTarefa): Boolean;
+    function Excluir(oTarefa: TTarefa): Boolean;
+    function Pesquisar(nome: string): TClientDataSet;
+    function getID: string;
+  end;
+
+implementation
+
+uses
+  Data.SqlExpr, System.SysUtils, Datasnap.Provider;
+{ TTarefaDAO }
+
+constructor TTarefaDAO.Create;
+begin
+  FConexao := TDM.Create;
+end;
+
+function TTarefaDAO.Editar(oTarefa: TTarefa): Boolean;
+var
+  sqlEditar: TSQLQuery;
+begin
+  sqlEditar := TSQLQuery.Create(nil);
+  try
+    sqlEditar := Conexao.getConexao(sqlEditar);
+    with sqlEditar do
+    begin
+      sqlEditar.CommandText := 'update TAREFA set' + 'NOME =' +
+        QuotedStr(oTarefa.nome) + ',' + 'TIPO =' + QuotedStr(oTarefa.Tipo) +
+        'where (CODIGO =' + IntToStr(oTarefa.Codigo) + ')';
+      try
+        ExecSQL();
+        Result := True;
+      except
+        on E: Exception do
+        begin
+          raise Exception.Create('Error Message' + E.Message);
+          Result := False;
+        end;
+      end;
+    end;
+  finally
+    FreeAndNil(sqlEditar);
+  end;
+end;
+
+function TTarefaDAO.Excluir(oTarefa: TTarefa): Boolean;
+begin
+
+end;
+
+function TTarefaDAO.getID: string;
+begin
+  Result := Conexao.getID('TAREFA');
+end;
+
+function TTarefaDAO.Novo(oTarefa: TTarefa): Boolean;
+var
+  sqlNovo: TSQLQuery;
+begin
+  sqlNovo := TSQLQuery.Create(nil);
+  try
+    with sqlNovo do
+    begin
+      sqlNovo := FConexao.getConexao(sqlNovo);
+      CommandText := ' insert into TAREFA (CODIGO, NOME, TIPO)' + 'values (' +
+        IntToStr(oTarefa.Codigo) + ',' + QuotedStr(oTarefa.nome) + ',' +
+        QuotedStr(oTarefa.Tipo) + ')';
+      try
+        ExecSQL();
+        Result := True;
+      except
+        on E: Exception do
+        begin
+          raise Exception.Create('Error Message' + E.Message);
+          Result := False;
+        end;
+      end;
+    end;
+  finally
+    FreeAndNil(sqlNovo);
+  end;
+end;
+
+function TTarefaDAO.Pesquisar(nome: string): TClientDataSet;
+var
+  sqlPesquiar: TSQLQuery;
+  dspPesquisar: TDataSetProvider;
+  cdsPesquisar: TClientDataSet;
+begin
+  sqlPesquiar := TSQLQuery.Create(nil);
+  dspPesquisar := TDataSetProvider.Create(nil);
+  cdsPesquisar := TClientDataSet.Create(nil);
+
+  try
+
+  finally
+    FreeAndNil(dspPesquisar);
+    FreeAndNil(sqlPesquiar);
+  end;
+end;
+
+end.

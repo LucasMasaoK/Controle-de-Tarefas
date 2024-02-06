@@ -3,7 +3,7 @@ unit uTarefa.DAO;
 interface
 
 uses
-  uTarefa, uDM;
+  uTarefa, uDM, Datasnap.DBClient;
 
 type
   TTarefaDAO = class
@@ -17,13 +17,14 @@ type
     function Novo(oTarefa: TTarefa): Boolean;
     function Editar(oTarefa: TTarefa): Boolean;
     function Excluir(oTarefa: TTarefa): Boolean;
+    function Pesquisar(nome: string): TClientDataSet;
     function getID: string;
   end;
 
 implementation
 
 uses
-  Datasnap.DBClient, Data.SqlExpr, System.SysUtils;
+  Data.SqlExpr, System.SysUtils, Datasnap.Provider;
 { TTarefaDAO }
 
 constructor TTarefaDAO.Create;
@@ -32,8 +33,31 @@ begin
 end;
 
 function TTarefaDAO.Editar(oTarefa: TTarefa): Boolean;
+var
+  sqlEditar: TSQLQuery;
 begin
-
+  sqlEditar := TSQLQuery.Create(nil);
+  try
+    sqlEditar := Conexao.getConexao(sqlEditar);
+    with sqlEditar do
+    begin
+      sqlEditar.CommandText := 'update TAREFA set' + 'NOME =' +
+        QuotedStr(oTarefa.nome) + ',' + 'TIPO =' + QuotedStr(oTarefa.Tipo) +
+        'where (CODIGO =' + IntToStr(oTarefa.Codigo) + ')';
+      try
+        ExecSQL();
+        Result := True;
+      except
+        on E: Exception do
+        begin
+          raise Exception.Create('Error Message' + E.Message);
+          Result := False;
+        end;
+      end;
+    end;
+  finally
+    FreeAndNil(sqlEditar);
+  end;
 end;
 
 function TTarefaDAO.Excluir(oTarefa: TTarefa): Boolean;
@@ -56,8 +80,8 @@ begin
     begin
       sqlNovo := FConexao.getConexao(sqlNovo);
       CommandText := ' insert into TAREFA (CODIGO, NOME, TIPO)' + 'values (' +
-        IntToStr(oTarefa.Codigo) + ',' + QuotedStr(oTarefa.Nome) +
-        ',' + QuotedStr(oTarefa.Tipo) + ')';
+        IntToStr(oTarefa.Codigo) + ',' + QuotedStr(oTarefa.nome) + ',' +
+        QuotedStr(oTarefa.Tipo) + ')';
       try
         ExecSQL();
         Result := True;
@@ -71,6 +95,30 @@ begin
     end;
   finally
     FreeAndNil(sqlNovo);
+  end;
+end;
+
+function TTarefaDAO.Pesquisar(nome: string): TClientDataSet;
+var
+  sqlPesquisar: TSQLQuery;
+  dspPesquisar: TDataSetProvider;
+  cdsPesquisar: TClientDataSet;
+begin
+  sqlPesquisar := TSQLQuery.Create(nil);
+  dspPesquisar := TDataSetProvider.Create(nil);
+  cdsPesquisar := TClientDataSet.Create(nil);
+
+  try
+    sqlPesquisar := Conexao.getConexao(sqlPesquisar);
+    sqlPesquisar.CommandText := 'SELECT * FROM TAREFA WHERE NOME LIKE ' +
+      QuotedStr(nome + '%');
+    dspPesquisar.DataSet := sqlPesquisar;
+    cdsPesquisar.SetProvider(dspPesquisar);
+    cdsPesquisar.Open;
+    Result := cdsPesquisar;
+  finally
+    FreeAndNil(dspPesquisar);
+    FreeAndNil(sqlPesquisar);
   end;
 end;
 

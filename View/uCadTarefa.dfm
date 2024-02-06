@@ -13,8 +13,14 @@ inherited frmCadTarefa: TfrmCadTarefa
     inherited btnSalvar: TButton
       OnClick = btnSalvarClick
     end
+    inherited btnPesquisar: TButton
+      OnClick = btnPesquisarClick
+    end
     inherited btnNovo: TButton
       OnClick = btnNovoClick
+    end
+    inherited btnEditar: TButton
+      OnClick = btnEditarClick
     end
   end
   inherited Panel2: TPanel

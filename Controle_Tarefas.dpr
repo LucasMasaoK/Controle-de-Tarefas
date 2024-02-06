@@ -15,7 +15,8 @@ uses
   uUsuario.Controller in 'Controller\uUsuario.Controller.pas',
   uTarefa in 'Model\uTarefa.pas',
   uTarefa.Controller in 'Controller\uTarefa.Controller.pas',
-  uTarefa.DAO in 'DAO\uTarefa.DAO.pas';
+  uTarefa.DAO in 'DAO\uTarefa.DAO.pas',
+  uPesqTarefa in 'View\uPesqTarefa.pas' {frmPesTarefa};
 
 {$R *.res}
 
@@ -28,5 +29,6 @@ begin
   Application.CreateForm(TfrmCadTarefa, frmCadTarefa);
   Application.CreateForm(TfrmPesq, frmPesq);
   Application.CreateForm(TfrmPesqCliente, frmPesqCliente);
+  Application.CreateForm(TfrmPesTarefa, frmPesTarefa);
   Application.Run;
 end.
