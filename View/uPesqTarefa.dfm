@@ -7,6 +7,9 @@ inherited frmPesTarefa: TfrmPesTarefa
     inherited btnPesquisar: TButton
       OnClick = btnPesquisarClick
     end
+    inherited btnEditar: TButton
+      OnClick = btnEditarClick
+    end
     inherited comboDireito: TComboBox
       ItemIndex = -1
       Text = 'Di'#225'ria'

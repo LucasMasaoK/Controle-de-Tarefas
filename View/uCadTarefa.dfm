@@ -10,8 +10,13 @@ inherited frmCadTarefa: TfrmCadTarefa
   inherited Panel1: TPanel
     Top = 244
     Width = 602
+    ExplicitTop = 244
+    ExplicitWidth = 602
     inherited btnSalvar: TButton
       OnClick = btnSalvarClick
+    end
+    inherited btnExcluir: TButton
+      OnClick = btnExcluirClick
     end
     inherited btnPesquisar: TButton
       OnClick = btnPesquisarClick
@@ -26,6 +31,8 @@ inherited frmCadTarefa: TfrmCadTarefa
   inherited Panel2: TPanel
     Width = 602
     Height = 244
+    ExplicitWidth = 602
+    ExplicitHeight = 244
     object Label1: TLabel
       Left = 22
       Top = 133

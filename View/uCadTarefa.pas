@@ -19,9 +19,11 @@ type
     procedure btnNovoClick(Sender: TObject);
     procedure btnEditarClick(Sender: TObject);
     procedure btnPesquisarClick(Sender: TObject);
+    procedure btnExcluirClick(Sender: TObject);
   private
     FTarefaController: TTarefaController;
     procedure Salvar;
+    procedure Excluir;
     function retornaTipo: String;
   public
     property TarefaController: TTarefaController read FTarefaController
@@ -41,6 +43,12 @@ procedure TfrmCadTarefa.btnEditarClick(Sender: TObject);
 begin
   inherited;
   TarefaController.Tarefa.Acao := acEditar;
+end;
+
+procedure TfrmCadTarefa.btnExcluirClick(Sender: TObject);
+begin
+  inherited;
+  Self.Excluir;
 end;
 
 procedure TfrmCadTarefa.btnNovoClick(Sender: TObject);
@@ -65,6 +73,22 @@ procedure TfrmCadTarefa.btnSalvarClick(Sender: TObject);
 begin
   inherited;
   Self.Salvar;
+end;
+
+
+procedure TfrmCadTarefa.Excluir;
+begin
+  if (editCodigo.Text = EmptyStr) or (editNome.Text = EmptyStr) then
+  begin
+    ShowMessage('Carregue um registro!');
+    exit;
+  end;
+  TarefaController.Tarefa.Acao := acDeletar;
+  TarefaController.Tarefa.Codigo := StrToInt(editCodigo.Text);
+  if TarefaController.Persistir then
+    ShowMessage('Operação realizada com sucesso!')
+  else
+    ShowMessage('Erro ao realizar operação!');
 end;
 
 procedure TfrmCadTarefa.FormCreate(Sender: TObject);

@@ -41,9 +41,9 @@ begin
     sqlEditar := Conexao.getConexao(sqlEditar);
     with sqlEditar do
     begin
-      sqlEditar.CommandText := 'update TAREFA set' + 'NOME =' +
-        QuotedStr(oTarefa.nome) + ',' + 'TIPO =' + QuotedStr(oTarefa.Tipo) +
-        'where (CODIGO =' + IntToStr(oTarefa.Codigo) + ')';
+      sqlEditar.CommandText := 'update TAREFA set ' + 'NOME =' +
+        QuotedStr(oTarefa.nome) + ', ' + 'TIPO =' + QuotedStr(oTarefa.Tipo) +
+        ' where (CODIGO =' + IntToStr(oTarefa.Codigo) + ')';
       try
         ExecSQL();
         Result := True;
@@ -61,8 +61,28 @@ begin
 end;
 
 function TTarefaDAO.Excluir(oTarefa: TTarefa): Boolean;
+var
+  sqlExcluir: TSQLQuery;
 begin
+  sqlExcluir := TSQLQuery.Create(nil);
+  try
+    sqlExcluir := Conexao.getConexao(sqlExcluir);
+    sqlExcluir.CommandText := 'DELETE FROM TAREFA WHERE CODIGO=' +
+      IntToStr(oTarefa.Codigo);
+    try
+      sqlExcluir.ExecSQL();
+      Result := True;
+    except
+      on E: Exception do
+      begin
+        raise Exception.Create('Error Message' + E.Message);
+        Result := False;
+      end;
 
+    end;
+  finally
+    FreeAndNil(sqlExcluir);
+  end;
 end;
 
 function TTarefaDAO.getID: string;

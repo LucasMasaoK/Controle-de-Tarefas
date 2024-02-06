@@ -51,9 +51,10 @@ begin
       acNovo:
         Result := oTarefaDAO.Novo(Self);
       acEditar:
-        ;
+        Result := oTarefaDAO.Editar(Self);
       acDeletar:
-        ;
+        Result := oTarefaDAO.Excluir(Self);
+
       acPequisar:
         ;
     end;
