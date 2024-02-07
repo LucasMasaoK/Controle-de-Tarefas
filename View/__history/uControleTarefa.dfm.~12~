@@ -142,38 +142,27 @@ object frmControleTarefa: TfrmControleTarefa
         item
           Expanded = False
           FieldName = 'nomeTarefa'
-          Title.Caption = 'Nome'
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'tipoTarefa'
-          Title.Caption = 'Tipo'
           Visible = True
         end>
     end
   end
   object cdsTarefa: TClientDataSet
-    PersistDataPacket.Data = {
-      580000009619E0BD01000000180000000200000000000300000058000A6E6F6D
-      655461726566610100490000000100055749445448020002001E000A7469706F
-      54617265666101004900000001000557494454480200020001000000}
-    Active = True
     Aggregates = <>
     Params = <>
     Left = 504
     Top = 249
     object cdsTarefaNome: TStringField
-      FieldKind = fkCalculated
       FieldName = 'Nome'
       Size = 30
-      Calculated = True
     end
     object cdsTarefaTipo: TStringField
-      FieldKind = fkCalculated
       FieldName = 'Tipo'
       Size = 1
-      Calculated = True
     end
   end
   object dsTarefa: TDataSource

@@ -25,8 +25,11 @@ type
     Label1: TLabel;
     Label2: TLabel;
     procedure btnLupaClick(Sender: TObject);
+    procedure btnIncluirClick(Sender: TObject);
   private
     procedure pesquisarCliente;
+    function pesquisarClienteCOD: string;
+    procedure Incluir;
   public
     { Public declarations }
   end;
@@ -36,13 +39,34 @@ var
 
 implementation
 
-uses uPesqCliente;
+uses uPesqCliente, uPesqTarefa;
 {$R *.dfm}
 { TfrmControleTarefa }
+
+procedure TfrmControleTarefa.btnIncluirClick(Sender: TObject);
+begin
+  Self.Incluir;
+end;
 
 procedure TfrmControleTarefa.btnLupaClick(Sender: TObject);
 begin
   Self.pesquisarCliente;
+end;
+
+procedure TfrmControleTarefa.Incluir;
+begin
+  if (editCodigo.Text = EmptyStr) or (editNome.Text = EmptyStr) then
+  begin
+    ShowMessage('Selecione um usuário!');
+    exit;
+  end;
+  Application.CreateForm(TfrmPesTarefa, frmPesTarefa);
+  try
+    frmPesTarefa.ShowModal;
+  finally
+    FreeAndNil(frmPesTarefa);
+  end;
+
 end;
 
 procedure TfrmControleTarefa.pesquisarCliente;
@@ -58,6 +82,11 @@ begin
   finally
     FreeAndNil(frmPesqCliente);
   end;
+end;
+
+function TfrmControleTarefa.pesquisarClienteCOD: string;
+begin
+
 end;
 
 end.

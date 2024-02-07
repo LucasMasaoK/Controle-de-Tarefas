@@ -163,17 +163,13 @@ object frmControleTarefa: TfrmControleTarefa
     Params = <>
     Left = 504
     Top = 249
-    object cdsTarefaNome: TStringField
-      FieldKind = fkCalculated
-      FieldName = 'Nome'
+    object cdsTarefanomeTarefa: TStringField
+      FieldName = 'nomeTarefa'
       Size = 30
-      Calculated = True
     end
-    object cdsTarefaTipo: TStringField
-      FieldKind = fkCalculated
-      FieldName = 'Tipo'
+    object cdsTarefatipoTarefa: TStringField
+      FieldName = 'tipoTarefa'
       Size = 1
-      Calculated = True
     end
   end
   object dsTarefa: TDataSource

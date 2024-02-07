@@ -51,7 +51,6 @@ begin
     Codigo := StrToInt(FieldByName('CODIGO').AsString);
     Nome := FieldByName('NOME').AsString;
     tipo := FieldByName('TIPO').AsString;
-    Acao := acEditar;
   end;
   Close;
 end;

@@ -69,9 +69,9 @@ begin
     frmPesTarefa.ShowModal;
     with frmPesTarefa.TarefaController.Tarefa, cdsTarefa do
     begin
-      cdsTarefa.Append;
-      FieldByName('Nome').AsString := frmPesTarefa.TarefaController.Tarefa.Nome;
-      FieldByName('Tipo').AsString := frmPesTarefa.TarefaController.Tarefa.Tipo;
+      Append;
+      FieldByName('Nome').AsString := Nome;
+      FieldByName('Tipo').AsString := Tipo;
 
     end;
   finally

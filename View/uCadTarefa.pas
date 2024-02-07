@@ -66,6 +66,7 @@ begin
     frmPesTarefa.ShowModal;
     with frmPesTarefa.TarefaController.Tarefa do
     begin
+      Acao := acEditar;
       editCodigo.Text := IntToStr(Codigo);
       editNome.Text := Nome;
     end;

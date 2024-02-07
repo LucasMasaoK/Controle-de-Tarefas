@@ -64,6 +64,11 @@ begin
   Application.CreateForm(TfrmPesTarefa, frmPesTarefa);
   try
     frmPesTarefa.ShowModal;
+    with frmPesTarefa.TarefaController.Tarefa do
+    begin
+      editCodigo.Text := IntToStr(Codigo);
+      editNome.Text := Nome;
+    end;
   finally
     FreeAndNil(frmPesTarefa);
   end;
@@ -83,6 +88,11 @@ begin
     exit;
   end;
   TarefaController.Tarefa.Acao := acDeletar;
+  TarefaController.Tarefa.Codigo := StrToInt(editCodigo.Text);
+  if TarefaController.Persistir then
+    ShowMessage('Operação realizada com sucesso!')
+  else
+    ShowMessage('Erro ao realizar operação!');
 end;
 
 procedure TfrmCadTarefa.FormCreate(Sender: TObject);
