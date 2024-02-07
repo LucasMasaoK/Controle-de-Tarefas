@@ -134,6 +134,12 @@
             <Form>frmPesTarefa</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="View\uControleTarefa.pas">
+            <Form>frmControleTarefa</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Model\uCtlTarefa.pas"/>
+        <DCCReference Include="DAO\uCtlTarefa.DAO.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

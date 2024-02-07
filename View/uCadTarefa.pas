@@ -64,6 +64,11 @@ begin
   Application.CreateForm(TfrmPesTarefa, frmPesTarefa);
   try
     frmPesTarefa.ShowModal;
+    with frmPesTarefa.TarefaController.Tarefa do
+    begin
+      editCodigo.Text := IntToStr(Codigo);
+      editNome.Text := Nome;
+    end;
   finally
     FreeAndNil(frmPesTarefa);
   end;
@@ -74,7 +79,6 @@ begin
   inherited;
   Self.Salvar;
 end;
-
 
 procedure TfrmCadTarefa.Excluir;
 begin

@@ -13,10 +13,11 @@ type
     procedure btnPesquisarClick(Sender: TObject);
     procedure btnEditarClick(Sender: TObject);
     procedure gridPesquisaDblClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     FusuarioController: TUsuarioController;
     procedure Pesquisar;
-    procedure Editar;
+    procedure Selecionar;
   public
     property usuarioController: TUsuarioController read FusuarioController
       write FusuarioController;
@@ -35,7 +36,7 @@ uses
 procedure TfrmPesqCliente.btnEditarClick(Sender: TObject);
 begin
   inherited;
-  Self.Editar;
+  Self.Selecionar;
 end;
 
 procedure TfrmPesqCliente.btnPesquisarClick(Sender: TObject);
@@ -44,39 +45,36 @@ begin
   Self.Pesquisar;
 end;
 
-procedure TfrmPesqCliente.Editar;
+procedure TfrmPesqCliente.Selecionar;
 begin
-  with frmCadUsuario, cdsPesquisa do
+  with usuarioController.Usuario, cdsPesquisa do
   begin
-    editCodigo.Text := FieldByName('CODIGO').AsString;
-    editNome.Text := FieldByName('NOME').AsString;
-    if FieldByName('DIREITO').AsString = 'O' then
-      comboDireito.ItemIndex := 0
-    else
-      comboDireito.ItemIndex := 1;
-    editSenha.Text := FieldByName('SENHA').AsString;
-
+    Codigo := StrToInt(FieldByName('CODIGO').AsString);
+    Nome := FieldByName('NOME').AsString;
+    Direito := FieldByName('DIREITO').AsString;
+    Senha := FieldByName('SENHA').AsString;
   end;
   Close;
+end;
+
+procedure TfrmPesqCliente.FormCreate(Sender: TObject);
+begin
+  inherited;
+  usuarioController := TUsuarioController.Create;
 end;
 
 procedure TfrmPesqCliente.gridPesquisaDblClick(Sender: TObject);
 begin
   inherited;
-  Self.Editar;
+  Self.Selecionar;
 end;
 
 procedure TfrmPesqCliente.Pesquisar;
 begin
-  FusuarioController := TUsuarioController.Create;
-  try
-    FusuarioController.Usuario.Acao := uAcao.acPequisar;
-    FusuarioController.Usuario.Nome := editPesquisa.Text;
-    cdsPesquisa := FusuarioController.Pesquisar;
-    dsPesquisa.DataSet := cdsPesquisa;
-  finally
-    FreeAndNil(FusuarioController);
-  end;
+  FusuarioController.Usuario.Acao := uAcao.acPequisar;
+  FusuarioController.Usuario.Nome := editPesquisa.Text;
+  cdsPesquisa := FusuarioController.Pesquisar;
+  dsPesquisa.DataSet := cdsPesquisa;
 end;
 
 end.

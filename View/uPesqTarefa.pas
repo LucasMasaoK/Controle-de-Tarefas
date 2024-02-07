@@ -16,7 +16,7 @@ type
   private
     FTarefaController: TTarefaController;
     procedure Pesquisar;
-    procedure Editar;
+    procedure Selecionar;
     function retornaTipo(tipo: string): integer;
   public
     property TarefaController: TTarefaController read FTarefaController
@@ -29,13 +29,13 @@ var
 implementation
 
 uses
-  uCadTarefa, System.StrUtils;
+  uCadTarefa, System.StrUtils, uAcao;
 {$R *.dfm}
 
 procedure TfrmPesTarefa.btnEditarClick(Sender: TObject);
 begin
   inherited;
-  Self.Editar;
+  Self.Selecionar;
 end;
 
 procedure TfrmPesTarefa.btnPesquisarClick(Sender: TObject);
@@ -44,14 +44,14 @@ begin
   Self.Pesquisar;
 end;
 
-procedure TfrmPesTarefa.Editar;
+procedure TfrmPesTarefa.Selecionar;
 begin
-  with frmCadTarefa, cdsPesquisa do
+  with TarefaController.Tarefa, cdsPesquisa do
   begin
-    editCodigo.Text := FieldByName('CODIGO').AsString;
-    editNome.Text := FieldByName('NOME').AsString;
-    comboTipo.ItemIndex := Self.retornaTipo(FieldByName('TIPO').AsString);
-    btnEditar.Click;
+    Codigo := StrToInt(FieldByName('CODIGO').AsString);
+    Nome := FieldByName('NOME').AsString;
+    tipo := FieldByName('TIPO').AsString;
+    Acao := acEditar;
   end;
   Close;
 end;

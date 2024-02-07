@@ -37,6 +37,7 @@ object frmPrincipal: TfrmPrincipal
     end
     object arefa1: TMenuItem
       Caption = 'Controle Tarefa'
+      OnClick = arefa1Click
     end
   end
 end

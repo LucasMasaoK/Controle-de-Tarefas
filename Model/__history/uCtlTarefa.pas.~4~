@@ -1,0 +1,18 @@
+unit uCtlTarefa;
+
+interface
+
+type
+  TCtlTarefa = class
+  private
+    FUsuario: integer;
+    FTarefa: integer;
+
+  public
+    property Usuario: integer read FUsuario write FUsuario;
+    property Tarefa: integer read FTarefa write FTarefa;
+  end;
+
+implementation
+
+end.

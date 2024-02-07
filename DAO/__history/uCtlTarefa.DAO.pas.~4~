@@ -1,0 +1,15 @@
+unit uCtlTarefa.DAO;
+
+interface
+
+type
+  TCtlTarefaDAO = class
+  private
+
+  public
+
+  end;
+
+implementation
+
+end.

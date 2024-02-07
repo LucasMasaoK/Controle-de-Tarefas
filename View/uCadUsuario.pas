@@ -25,7 +25,8 @@ type
   private
     FController: TUsuarioController;
     procedure verificaSenha;
-    function retTipo(index: integer): String;
+    function retTipo(index: integer): String; overload;
+    function retTipo(char: string): integer; overload;
     procedure salvar;
   public
     property Controller: TUsuarioController read FController write FController;
@@ -37,7 +38,7 @@ var
 
 implementation
 
-uses uAcao, uPesqCliente;
+uses uAcao, uPesqCliente, System.StrUtils;
 {$R *.dfm}
 { TfrmCadCliente }
 
@@ -69,7 +70,14 @@ begin
   Application.CreateForm(TfrmPesqCliente, frmPesqCliente);
   try
     frmPesqCliente.ShowModal;
-    FController.Usuario.Acao:=acEditar;
+    FController.Usuario.Acao := acEditar;
+    with frmPesqCliente.usuarioController.Usuario do
+    begin
+      editCodigo.Text := IntToStr(Codigo);
+      editNome.Text := Nome;
+      editSenha.Text := Senha;
+      comboDireito.ItemIndex := Self.retTipo(Direito);
+    end;
   finally
     FreeAndNil(frmPesqCliente);
   end;
@@ -91,6 +99,20 @@ procedure TfrmCadUsuario.FormCreate(Sender: TObject);
 begin
   inherited;
   FController := TUsuarioController.Create;
+end;
+
+function TfrmCadUsuario.retTipo(char: string): integer;
+begin
+  case AnsiIndexStr(FController.Usuario.Direito, ['O', 'S']) of
+    0:
+      begin
+        Result := 0;
+      end;
+    1:
+      begin
+        Result := 1;
+      end;
+  end;
 end;
 
 function TfrmCadUsuario.retTipo(index: integer): String;

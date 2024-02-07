@@ -1,0 +1,15 @@
+unit uCtlTarefa;
+
+interface
+
+type
+  TCtlTarefa = class
+  private
+
+  public
+
+  end;
+
+implementation
+
+end.

@@ -18,6 +18,7 @@ type
     arefa2: TMenuItem;
     procedure Cliente1Click(Sender: TObject);
     procedure arefa2Click(Sender: TObject);
+    procedure arefa1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -31,7 +32,17 @@ implementation
 
 {$R *.dfm}
 
-uses uCadUsuario, uCadTarefa;
+uses uCadUsuario, uCadTarefa, uControleTarefa;
+
+procedure TfrmPrincipal.arefa1Click(Sender: TObject);
+begin
+  application.CreateForm(TfrmControleTarefa,frmControleTarefa);
+  try
+    frmControleTarefa.ShowModal;
+  finally
+    FreeAndNil(frmControleTarefa);
+  end;
+end;
 
 procedure TfrmPrincipal.arefa2Click(Sender: TObject);
 begin

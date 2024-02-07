@@ -1,5 +1,6 @@
 inherited frmPesqCliente: TfrmPesqCliente
   Caption = 'Pesquisa de Cliente'
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel2: TPanel
@@ -12,6 +13,7 @@ inherited frmPesqCliente: TfrmPesqCliente
       OnClick = btnPesquisarClick
     end
     inherited btnEditar: TButton
+      Caption = 'Selecionar'
       OnClick = btnEditarClick
     end
   end
