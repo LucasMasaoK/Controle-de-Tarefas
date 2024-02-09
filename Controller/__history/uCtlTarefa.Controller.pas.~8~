@@ -1,0 +1,33 @@
+unit uCtlTarefa.Controller;
+
+interface
+
+uses
+  uCtlTarefa;
+
+type
+  TCtlTarefaController = class
+  private
+    FTarefaModel: TCtlTarefa;
+
+  public
+    constructor Create;
+    property CtlTarefa: TCtlTarefa read FTarefaModel write FTarefaModel;
+    Function Persistir: Boolean;
+  end;
+
+implementation
+
+{ TCtlTarefaController }
+
+constructor TCtlTarefaController.Create;
+begin
+  CtlTarefa := TCtlTarefa.Create;
+end;
+
+function TCtlTarefaController.Persistir: Boolean;
+begin
+  Result := CtlTarefa.Persistir;
+end;
+
+end.

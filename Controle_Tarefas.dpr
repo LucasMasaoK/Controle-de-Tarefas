@@ -19,7 +19,8 @@ uses
   uPesqTarefa in 'View\uPesqTarefa.pas' {frmPesTarefa},
   uControleTarefa in 'View\uControleTarefa.pas' {frmControleTarefa},
   uCtlTarefa in 'Model\uCtlTarefa.pas',
-  uCtlTarefa.DAO in 'DAO\uCtlTarefa.DAO.pas';
+  uCtlTarefa.DAO in 'DAO\uCtlTarefa.DAO.pas',
+  uCtlTarefa.Controller in 'Controller\uCtlTarefa.Controller.pas';
 
 {$R *.res}
 

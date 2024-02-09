@@ -6,7 +6,8 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.Buttons,
-  Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids, Datasnap.DBClient;
+  Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids, Datasnap.DBClient, uCtlTarefa,
+  uCtlTarefa.Controller;
 
 type
   TfrmControleTarefa = class(TForm)
@@ -24,18 +25,20 @@ type
     btnLupa: TBitBtn;
     Label1: TLabel;
     Label2: TLabel;
-    cdsTarefa: TClientDataSet;
     dsTarefa: TDataSource;
-    cdsTarefaNome: TStringField;
-    cdsTarefaTipo: TStringField;
+    cdsTarefa: TClientDataSet;
     procedure btnLupaClick(Sender: TObject);
     procedure btnIncluirClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure btnPesquisarClick(Sender: TObject);
   private
+    FTarefa: TCtlTarefaController;
     procedure pesquisarCliente;
+    procedure pesquisarTarefa;
     function pesquisarClienteCOD: string;
     procedure Incluir;
   public
-    { Public declarations }
+    property Tarefa: TCtlTarefaController read FTarefa write FTarefa;
   end;
 
 var
@@ -43,7 +46,7 @@ var
 
 implementation
 
-uses uPesqCliente, uPesqTarefa;
+uses uPesqCliente, uPesqTarefa, uAcao;
 {$R *.dfm}
 { TfrmControleTarefa }
 
@@ -57,6 +60,16 @@ begin
   Self.pesquisarCliente;
 end;
 
+procedure TfrmControleTarefa.btnPesquisarClick(Sender: TObject);
+begin
+  Self.pesquisarTarefa;
+end;
+
+procedure TfrmControleTarefa.FormCreate(Sender: TObject);
+begin
+  Tarefa := TCtlTarefaController.Create;
+end;
+
 procedure TfrmControleTarefa.Incluir;
 begin
   if (editCodigo.Text = EmptyStr) or (editNome.Text = EmptyStr) then
@@ -67,13 +80,12 @@ begin
   Application.CreateForm(TfrmPesTarefa, frmPesTarefa);
   try
     frmPesTarefa.ShowModal;
-    with frmPesTarefa.TarefaController.Tarefa, cdsTarefa do
-    begin
-      cdsTarefa.Append;
-      FieldByName('Nome').AsString := frmPesTarefa.TarefaController.Tarefa.Nome;
-      FieldByName('Tipo').AsString := frmPesTarefa.TarefaController.Tarefa.Tipo;
-
-    end;
+    Tarefa.CtlTarefa.Usuario := StrToInt(editCodigo.Text);
+    Tarefa.CtlTarefa.Tarefa := frmPesTarefa.TarefaController.Tarefa.Codigo;
+    Tarefa.CtlTarefa.Acao := acNovo;
+    if not Tarefa.Persistir then
+      ShowMessage('Tarefa já cadastrada');
+    Self.pesquisarTarefa;
   finally
     FreeAndNil(frmPesTarefa);
   end;
@@ -98,6 +110,16 @@ end;
 function TfrmControleTarefa.pesquisarClienteCOD: string;
 begin
 
+end;
+
+procedure TfrmControleTarefa.pesquisarTarefa;
+begin
+  Tarefa.CtlTarefa.Acao := acPequisar;
+  Tarefa.CtlTarefa.Usuario := StrToInt(editCodigo.Text);
+  cdsTarefa := Tarefa.Pesquisar;
+  dsTarefa.DataSet := cdsTarefa;
+  if cdsTarefa.RecordCount = 0 then
+    ShowMessage('Nenhum registro encontrado');
 end;
 
 end.

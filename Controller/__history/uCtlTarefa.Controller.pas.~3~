@@ -1,0 +1,15 @@
+unit uCtlTarefa.Controller;
+
+interface
+
+type
+  TCtlTarefaController = class
+  private
+
+  public
+
+  end;
+
+implementation
+
+end.

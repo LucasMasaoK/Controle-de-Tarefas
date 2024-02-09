@@ -1,0 +1,33 @@
+unit uCtlTarefa.Controller;
+
+interface
+
+uses
+  uCtlTarefa;
+
+type
+  TCtlTarefaController = class
+  private
+    FTarefaModel: TCtlTarefa;
+
+  public
+    constructor Create;
+    property CtlTarefa: TCtlTarefa read FTarefaModel write FTarefaModel;
+    procedure Persistir;
+  end;
+
+implementation
+
+{ TCtlTarefaController }
+
+constructor TCtlTarefaController.Create;
+begin
+  CtlTarefa:= TCtlTarefa.Create;  
+end;
+
+procedure TCtlTarefaController.Persistir;
+begin
+
+end;
+
+end.
