@@ -1,0 +1,12 @@
+unit uLogin.Model;
+
+interface
+
+type
+  TLogin = class
+
+  end;
+
+implementation
+
+end.

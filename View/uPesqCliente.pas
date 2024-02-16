@@ -10,10 +10,15 @@ uses
 
 type
   TfrmPesqCliente = class(TfrmPesq)
+    cdsPesquisaCODIGO: TIntegerField;
+    cdsPesquisaNOME: TStringField;
+    cdsPesquisaSENHA: TStringField;
+    cdsPesquisaDIREITO: TStringField;
     procedure btnPesquisarClick(Sender: TObject);
     procedure btnEditarClick(Sender: TObject);
     procedure gridPesquisaDblClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     FusuarioController: TUsuarioController;
     procedure Pesquisar;
@@ -61,6 +66,13 @@ procedure TfrmPesqCliente.FormCreate(Sender: TObject);
 begin
   inherited;
   usuarioController := TUsuarioController.Create;
+
+end;
+
+procedure TfrmPesqCliente.FormShow(Sender: TObject);
+begin
+  inherited;
+  Self.Pesquisar;
 end;
 
 procedure TfrmPesqCliente.gridPesquisaDblClick(Sender: TObject);

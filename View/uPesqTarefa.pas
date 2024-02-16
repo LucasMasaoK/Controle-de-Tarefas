@@ -13,6 +13,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure btnPesquisarClick(Sender: TObject);
     procedure btnEditarClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     FTarefaController: TTarefaController;
     procedure Pesquisar;
@@ -59,6 +60,12 @@ procedure TfrmPesTarefa.FormCreate(Sender: TObject);
 begin
   inherited;
   TarefaController := TTarefaController.Create;
+end;
+
+procedure TfrmPesTarefa.FormShow(Sender: TObject);
+begin
+  inherited;
+  Self.Pesquisar;
 end;
 
 procedure TfrmPesTarefa.Pesquisar;

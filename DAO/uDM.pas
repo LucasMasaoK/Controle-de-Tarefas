@@ -41,7 +41,7 @@ begin
     LoginPrompt := False;
     with Params do
     begin
-      Add('Database=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Banco\CONTROLE_TAREFAS.FDB');
+      Add('Database=C:\Users\Programação\Documents\GitHub\Controle-de-Tarefas\Banco\CONTROLE_TAREFAS.FDB');
       Add('User_name=SYSDBA');
       Add('Password=masterkey');
     end;

@@ -1,5 +1,0 @@
-inherited frmPesq1: TfrmPesq1
-  Caption = 'frmPesq1'
-  PixelsPerInch = 96
-  TextHeight = 13
-end

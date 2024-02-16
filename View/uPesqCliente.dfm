@@ -1,11 +1,30 @@
 inherited frmPesqCliente: TfrmPesqCliente
   Caption = 'Pesquisa de Cliente'
   OnCreate = FormCreate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel2: TPanel
     inherited gridPesquisa: TDBGrid
       OnDblClick = gridPesquisaDblClick
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'CODIGO'
+          Width = 50
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'NOME'
+          Width = 500
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'DIREITO'
+          Visible = True
+        end>
     end
   end
   inherited Panel1: TPanel
@@ -20,5 +39,19 @@ inherited frmPesqCliente: TfrmPesqCliente
   inherited cdsPesquisa: TClientDataSet
     Left = 592
     Top = 295
+    object cdsPesquisaCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+    end
+    object cdsPesquisaNOME: TStringField
+      FieldName = 'NOME'
+      Size = 80
+    end
+    object cdsPesquisaDIREITO: TStringField
+      FieldName = 'DIREITO'
+    end
+    object cdsPesquisaSENHA: TStringField
+      FieldName = 'SENHA'
+      Size = 30
+    end
   end
 end

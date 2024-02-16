@@ -9,8 +9,8 @@
     <Transaction>2024/01/19 21:25:23.000.212,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.dfm=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\View\Modelo\uCadModelo.dfm</Transaction>
     <Transaction>2024/01/19 21:25:23.000.212,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\View\Modelo\uCadModelo.pas</Transaction>
     <Transaction>2024/01/19 21:30:22.000.784,=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
-    <Transaction>2024/01/19 21:30:35.000.981,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\View\uCadCliente.pas=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
     <Transaction>2024/01/19 21:30:35.000.981,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\View\uCadCliente.dfm=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.dfm</Transaction>
+    <Transaction>2024/01/19 21:30:35.000.981,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\View\uCadCliente.pas=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
     <Transaction>2024/01/19 21:42:41.000.689,=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
     <Transaction>2024/01/19 21:42:52.000.677,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\View\uCadTarefa.dfm=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.dfm</Transaction>
     <Transaction>2024/01/19 21:42:52.000.677,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\View\uCadTarefa.pas=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
@@ -18,8 +18,8 @@
     <Transaction>2024/01/20 09:32:13.000.802,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\View\Modelo\uPesqModelo.pas=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
     <Transaction>2024/01/20 09:32:13.000.802,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\View\Modelo\uPesqModelo.dfm=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.dfm</Transaction>
     <Transaction>2024/01/20 09:33:45.000.917,=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
-    <Transaction>2024/01/20 09:34:05.000.685,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\View\uPesqCliente.pas=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
     <Transaction>2024/01/20 09:34:05.000.685,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\View\uPesqCliente.dfm=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.dfm</Transaction>
+    <Transaction>2024/01/20 09:34:05.000.685,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\View\uPesqCliente.pas=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
     <Transaction>2024/01/20 09:51:23.000.326,=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
     <Transaction>2024/01/20 09:51:56.000.130,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\DAO\uDM.pas=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
     <Transaction>2024/01/20 09:53:48.000.753,=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
@@ -36,8 +36,8 @@
     <Transaction>2024/01/20 10:37:09.000.801,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\DAO\uUsuario.DAO.pas=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\DAO\uCliente.DAO.pas</Transaction>
     <Transaction>2024/01/20 11:25:44.000.577,=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
     <Transaction>2024/01/20 13:05:05.000.150,=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
-    <Transaction>2024/01/24 15:30:25.000.317,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\View\uCadCliente.pas=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\View\uCadUsuario.pas</Transaction>
     <Transaction>2024/01/24 15:30:25.000.317,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\View\uCadCliente.dfm=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\View\uCadUsuario.dfm</Transaction>
+    <Transaction>2024/01/24 15:30:25.000.317,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\View\uCadCliente.pas=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\View\uCadUsuario.pas</Transaction>
     <Transaction>2024/02/06 16:16:40.000.237,=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
     <Transaction>2024/02/06 16:22:56.000.699,=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
     <Transaction>2024/02/06 16:23:10.000.594,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Model\uTarefa.pas</Transaction>
@@ -55,7 +55,12 @@
     <Transaction>2024/02/07 11:31:34.000.844,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Model\uCtlTarefa.pas</Transaction>
     <Transaction>2024/02/07 11:33:15.000.497,=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
     <Transaction>2024/02/07 11:33:29.000.763,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\DAO\uCtlTarefa.DAO.pas</Transaction>
-    <Transaction>2024/02/09 19:15:52.753,=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
-    <Transaction>2024/02/09 19:16:10.982,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Controller\uCtlTarefa.Controller.pas=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
+    <Transaction>2024/02/09 19:15:52.000.753,=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
+    <Transaction>2024/02/09 19:16:10.000.982,C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Controller\uCtlTarefa.Controller.pas=C:\Users\Delphi 10\Documents\Embarcadero\Studio\Projects\Controle de Tarefas\Unit1.pas</Transaction>
+    <Transaction>2024/02/15 12:24:37.000.206,=C:\Users\Programação\Documents\GitHub\Controle-de-Tarefas\Unit1.pas</Transaction>
+    <Transaction>2024/02/15 12:24:54.000.135,C:\Users\Programação\Documents\GitHub\Controle-de-Tarefas\Unit1.dfm=C:\Users\Programação\Documents\GitHub\Controle-de-Tarefas\View\uLogin.dfm</Transaction>
+    <Transaction>2024/02/15 12:24:54.000.135,C:\Users\Programação\Documents\GitHub\Controle-de-Tarefas\Unit1.pas=C:\Users\Programação\Documents\GitHub\Controle-de-Tarefas\View\uLogin.pas</Transaction>
+    <Transaction>2024/02/15 13:17:30.000.332,=C:\Users\Programação\Documents\GitHub\Controle-de-Tarefas\Unit1.pas</Transaction>
+    <Transaction>2024/02/15 13:18:31.000.412,C:\Users\Programação\Documents\GitHub\Controle-de-Tarefas\Unit1.pas=C:\Users\Programação\Documents\GitHub\Controle-de-Tarefas\Model\uLogin.Model.pas</Transaction>
   </Transactions>
 </BorlandProject>

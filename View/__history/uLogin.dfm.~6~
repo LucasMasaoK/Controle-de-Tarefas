@@ -1,0 +1,81 @@
+object frmLogin: TfrmLogin
+  Left = 0
+  Top = 0
+  Caption = 'Login'
+  ClientHeight = 300
+  ClientWidth = 498
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  PixelsPerInch = 120
+  TextHeight = 16
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 498
+    Height = 300
+    Align = alClient
+    TabOrder = 0
+    object editCodigo: TLabeledEdit
+      Left = 89
+      Top = 51
+      Width = 264
+      Height = 24
+      EditLabel.Width = 39
+      EditLabel.Height = 16
+      EditLabel.Caption = 'C'#243'digo'
+      TabOrder = 0
+    end
+    object btnLupa: TBitBtn
+      Left = 359
+      Top = 51
+      Width = 51
+      Height = 25
+      Caption = 'Pesq'
+      TabOrder = 1
+    end
+    object editNome: TLabeledEdit
+      Left = 89
+      Top = 106
+      Width = 321
+      Height = 24
+      EditLabel.Width = 33
+      EditLabel.Height = 16
+      EditLabel.Caption = 'Nome'
+      TabOrder = 2
+    end
+    object editSenha: TLabeledEdit
+      Left = 89
+      Top = 170
+      Width = 321
+      Height = 24
+      EditLabel.Width = 36
+      EditLabel.Height = 16
+      EditLabel.Caption = 'Senha'
+      MaxLength = 12
+      PasswordChar = '*'
+      TabOrder = 3
+    end
+    object btnSair: TButton
+      Left = 151
+      Top = 213
+      Width = 75
+      Height = 33
+      Caption = 'Sair'
+      TabOrder = 4
+    end
+    object btnEntrar: TButton
+      Left = 246
+      Top = 213
+      Width = 75
+      Height = 33
+      Caption = 'Entrar'
+      TabOrder = 5
+    end
+  end
+end

@@ -20,13 +20,16 @@ uses
   uControleTarefa in 'View\uControleTarefa.pas' {frmControleTarefa},
   uCtlTarefa in 'Model\uCtlTarefa.pas',
   uCtlTarefa.DAO in 'DAO\uCtlTarefa.DAO.pas',
-  uCtlTarefa.Controller in 'Controller\uCtlTarefa.Controller.pas';
+  uCtlTarefa.Controller in 'Controller\uCtlTarefa.Controller.pas',
+  uLogin in 'View\uLogin.pas' {frmLogin},
+  uLogin.Model in 'Model\uLogin.Model.pas';
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmLogin, frmLogin);
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
   Application.CreateForm(TfrmCad, frmCad);
   Application.CreateForm(TfrmCadUsuario, frmCadUsuario);

@@ -22,11 +22,15 @@ type
     editNome: TLabeledEdit;
     comboDireito: TComboBox;
     editCodigo: TLabeledEdit;
-    btnLupa: TBitBtn;
     Label1: TLabel;
     Label2: TLabel;
     dsTarefa: TDataSource;
     cdsTarefa: TClientDataSet;
+    btnLupa: TBitBtn;
+    cdsTarefaCOD_USUARIO: TIntegerField;
+    cdsTarefaCOD_TAREFA: TIntegerField;
+    cdsTarefaNOME: TStringField;
+    cdsTarefaTIPO: TStringField;
     procedure btnLupaClick(Sender: TObject);
     procedure btnIncluirClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -37,6 +41,7 @@ type
     procedure pesquisarTarefa;
     function pesquisarClienteCOD: string;
     procedure Incluir;
+    procedure verificaPermissao;
   public
     property Tarefa: TCtlTarefaController read FTarefa write FTarefa;
   end;
@@ -46,7 +51,7 @@ var
 
 implementation
 
-uses uPesqCliente, uPesqTarefa, uAcao;
+uses uPesqCliente, uPesqTarefa, uAcao, uLogin;
 {$R *.dfm}
 { TfrmControleTarefa }
 
@@ -58,6 +63,7 @@ end;
 procedure TfrmControleTarefa.btnLupaClick(Sender: TObject);
 begin
   Self.pesquisarCliente;
+  Self.pesquisarTarefa;
 end;
 
 procedure TfrmControleTarefa.btnPesquisarClick(Sender: TObject);
@@ -72,20 +78,19 @@ end;
 
 procedure TfrmControleTarefa.Incluir;
 begin
-  if (editCodigo.Text = EmptyStr) or (editNome.Text = EmptyStr) then
-  begin
-    ShowMessage('Selecione um usuário!');
-    exit;
-  end;
+  Self.verificaPermissao;
   Application.CreateForm(TfrmPesTarefa, frmPesTarefa);
   try
     frmPesTarefa.ShowModal;
-    Tarefa.CtlTarefa.Usuario := StrToInt(editCodigo.Text);
-    Tarefa.CtlTarefa.Tarefa := frmPesTarefa.TarefaController.Tarefa.Codigo;
-    Tarefa.CtlTarefa.Acao := acNovo;
-    if not Tarefa.Persistir then
-      ShowMessage('Tarefa já cadastrada');
-    Self.pesquisarTarefa;
+    if frmPesTarefa.TarefaController.Tarefa.Codigo > 0 then
+    begin
+      Tarefa.CtlTarefa.Usuario := StrToInt(editCodigo.Text);
+      Tarefa.CtlTarefa.Tarefa := frmPesTarefa.TarefaController.Tarefa.Codigo;
+      Tarefa.CtlTarefa.Acao := acNovo;
+      if not Tarefa.Persistir then
+        ShowMessage('Tarefa já cadastrada');
+      Self.pesquisarTarefa;
+    end;
   finally
     FreeAndNil(frmPesTarefa);
   end;
@@ -120,6 +125,21 @@ begin
   dsTarefa.DataSet := cdsTarefa;
   if cdsTarefa.RecordCount = 0 then
     ShowMessage('Nenhum registro encontrado');
+end;
+
+procedure TfrmControleTarefa.verificaPermissao;
+begin
+  if (editCodigo.Text = EmptyStr) or (editNome.Text = EmptyStr) then
+  begin
+    ShowMessage('Selecione um usuário!');
+    exit;
+  end;
+  if trim(frmLogin.Usuario.Direito) = 'Operador' then
+  begin
+    ShowMessage('Necessário permissão Supervisor para adicionar Tarefas!');
+    btnIncluir.Enabled:=False;
+    exit;
+  end;
 end;
 
 end.

@@ -64,10 +64,8 @@ begin
 
     sqlPesquisa := Conexao.getConexao(sqlPesquisa);
     sqlPesquisa.CommandText :=
-      'SELECT usuario.nome Nome,TAREFA.nome Tarefa  FROM usuario_tarefa ' +
-      'JOIN usuario ON usuario.codigo=COD_USUARIO ' +
-      'JOIN TAREFA ON TAREFA.codigo=COD_TAREFA ' + 'WHERE  COD_USUARIO= ' +
-      IntToStr(oCtlTarefa.Usuario);
+      'SELECT * FROM VW_TAREFA_USUARIO ' +
+      'WHERE  COD_USUARIO= ' + IntToStr(oCtlTarefa.Usuario);
     dspPesquisa.DataSet := sqlPesquisa;
     cdsPesquisa.SetProvider(dspPesquisa);
     try
