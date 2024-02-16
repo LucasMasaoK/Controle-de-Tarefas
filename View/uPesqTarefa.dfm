@@ -4,6 +4,14 @@ inherited frmPesTarefa: TfrmPesTarefa
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
+  inherited Panel2: TPanel
+    inherited gridPesquisa: TDBGrid
+      Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+      OnColEnter = gridPesquisaColEnter
+      OnDblClick = gridPesquisaDblClick
+      OnKeyPress = gridPesquisaKeyPress
+    end
+  end
   inherited Panel1: TPanel
     inherited btnPesquisar: TButton
       OnClick = btnPesquisarClick
@@ -11,6 +19,7 @@ inherited frmPesTarefa: TfrmPesTarefa
     inherited btnEditar: TButton
       Caption = 'Selecionar'
       OnClick = btnEditarClick
+      OnKeyPress = btnEditarKeyPress
     end
     inherited comboDireito: TComboBox
       ItemIndex = -1

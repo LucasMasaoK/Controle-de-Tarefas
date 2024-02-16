@@ -26,22 +26,24 @@ type
     Label2: TLabel;
     dsTarefa: TDataSource;
     cdsTarefa: TClientDataSet;
-    btnLupa: TBitBtn;
     cdsTarefaCOD_USUARIO: TIntegerField;
     cdsTarefaCOD_TAREFA: TIntegerField;
     cdsTarefaNOME: TStringField;
     cdsTarefaTIPO: TStringField;
-    procedure btnLupaClick(Sender: TObject);
+    brnPesqUsuario: TSpeedButton;
     procedure btnIncluirClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnPesquisarClick(Sender: TObject);
+    procedure btnLimparClick(Sender: TObject);
+    procedure brnPesqUsuarioClick(Sender: TObject);
+    procedure btnSairClick(Sender: TObject);
   private
     FTarefa: TCtlTarefaController;
     procedure pesquisarCliente;
     procedure pesquisarTarefa;
     function pesquisarClienteCOD: string;
     procedure Incluir;
-    procedure verificaPermissao;
+    function verificaPermissao: Boolean;
   public
     property Tarefa: TCtlTarefaController read FTarefa write FTarefa;
   end;
@@ -55,20 +57,41 @@ uses uPesqCliente, uPesqTarefa, uAcao, uLogin;
 {$R *.dfm}
 { TfrmControleTarefa }
 
-procedure TfrmControleTarefa.btnIncluirClick(Sender: TObject);
-begin
-  Self.Incluir;
-end;
-
-procedure TfrmControleTarefa.btnLupaClick(Sender: TObject);
+procedure TfrmControleTarefa.brnPesqUsuarioClick(Sender: TObject);
 begin
   Self.pesquisarCliente;
   Self.pesquisarTarefa;
 end;
 
+procedure TfrmControleTarefa.btnIncluirClick(Sender: TObject);
+begin
+  if not Self.verificaPermissao then
+    exit;
+  Self.Incluir;
+end;
+
+procedure TfrmControleTarefa.btnLimparClick(Sender: TObject);
+begin
+  if not Self.verificaPermissao then
+    exit;
+
+  if Application.MessageBox('Deseja excluir todas as tarefas?',
+    'Deseja continuar?', mb_yesno + mb_iconquestion) = id_yes then
+  begin
+    Tarefa.CtlTarefa.Acao := acDeletar;
+    Tarefa.Persistir;
+    Self.pesquisarTarefa;
+  end;
+end;
+
 procedure TfrmControleTarefa.btnPesquisarClick(Sender: TObject);
 begin
   Self.pesquisarTarefa;
+end;
+
+procedure TfrmControleTarefa.btnSairClick(Sender: TObject);
+begin
+  Close;
 end;
 
 procedure TfrmControleTarefa.FormCreate(Sender: TObject);
@@ -78,7 +101,6 @@ end;
 
 procedure TfrmControleTarefa.Incluir;
 begin
-  Self.verificaPermissao;
   Application.CreateForm(TfrmPesTarefa, frmPesTarefa);
   try
     frmPesTarefa.ShowModal;
@@ -123,11 +145,9 @@ begin
   Tarefa.CtlTarefa.Usuario := StrToInt(editCodigo.Text);
   cdsTarefa := Tarefa.Pesquisar;
   dsTarefa.DataSet := cdsTarefa;
-  if cdsTarefa.RecordCount = 0 then
-    ShowMessage('Nenhum registro encontrado');
 end;
 
-procedure TfrmControleTarefa.verificaPermissao;
+function TfrmControleTarefa.verificaPermissao: Boolean;
 begin
   if (editCodigo.Text = EmptyStr) or (editNome.Text = EmptyStr) then
   begin
@@ -137,9 +157,12 @@ begin
   if trim(frmLogin.Usuario.Direito) = 'Operador' then
   begin
     ShowMessage('Necessário permissão Supervisor para adicionar Tarefas!');
-    btnIncluir.Enabled:=False;
-    exit;
-  end;
+    btnIncluir.Enabled := False;
+    btnLimpar.Enabled := False;
+    Result := False;
+  end
+  else
+    Result := True;
 end;
 
 end.

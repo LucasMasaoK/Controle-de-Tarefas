@@ -19,6 +19,9 @@ type
     procedure gridPesquisaDblClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure gridPesquisaColEnter(Sender: TObject);
+    procedure gridPesquisaEnter(Sender: TObject);
+    procedure gridPesquisaKeyPress(Sender: TObject; var Key: Char);
   private
     FusuarioController: TUsuarioController;
     procedure Pesquisar;
@@ -75,10 +78,29 @@ begin
   Self.Pesquisar;
 end;
 
+procedure TfrmPesqCliente.gridPesquisaColEnter(Sender: TObject);
+begin
+  inherited;
+  Self.Selecionar;
+end;
+
 procedure TfrmPesqCliente.gridPesquisaDblClick(Sender: TObject);
 begin
   inherited;
   Self.Selecionar;
+end;
+
+procedure TfrmPesqCliente.gridPesquisaEnter(Sender: TObject);
+begin
+  inherited;
+  Self.Selecionar;
+end;
+
+procedure TfrmPesqCliente.gridPesquisaKeyPress(Sender: TObject; var Key: Char);
+begin
+  inherited;
+  if Key = #13 then
+    Self.Selecionar;
 end;
 
 procedure TfrmPesqCliente.Pesquisar;

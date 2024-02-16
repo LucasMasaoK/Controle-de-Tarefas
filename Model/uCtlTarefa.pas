@@ -38,8 +38,7 @@ begin
 
       acEditar:
         ;
-      acDeletar:
-        ;
+      acDeletar: Result:=CtlTarefaDAO.LimparTarefa(Self);
 
     end;
   finally

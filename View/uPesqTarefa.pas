@@ -14,6 +14,10 @@ type
     procedure btnPesquisarClick(Sender: TObject);
     procedure btnEditarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure gridPesquisaColEnter(Sender: TObject);
+    procedure gridPesquisaDblClick(Sender: TObject);
+    procedure gridPesquisaKeyPress(Sender: TObject; var Key: Char);
+    procedure btnEditarKeyPress(Sender: TObject; var Key: Char);
   private
     FTarefaController: TTarefaController;
     procedure Pesquisar;
@@ -37,6 +41,13 @@ procedure TfrmPesTarefa.btnEditarClick(Sender: TObject);
 begin
   inherited;
   Self.Selecionar;
+end;
+
+procedure TfrmPesTarefa.btnEditarKeyPress(Sender: TObject; var Key: Char);
+begin
+  inherited;
+  if Key = #13 then
+    Self.Selecionar;
 end;
 
 procedure TfrmPesTarefa.btnPesquisarClick(Sender: TObject);
@@ -66,6 +77,25 @@ procedure TfrmPesTarefa.FormShow(Sender: TObject);
 begin
   inherited;
   Self.Pesquisar;
+end;
+
+procedure TfrmPesTarefa.gridPesquisaColEnter(Sender: TObject);
+begin
+  inherited;
+  Self.Selecionar;
+end;
+
+procedure TfrmPesTarefa.gridPesquisaDblClick(Sender: TObject);
+begin
+  inherited;
+  Self.Selecionar;
+end;
+
+procedure TfrmPesTarefa.gridPesquisaKeyPress(Sender: TObject; var Key: Char);
+begin
+  inherited;
+  if Key = #13 then
+
 end;
 
 procedure TfrmPesTarefa.Pesquisar;

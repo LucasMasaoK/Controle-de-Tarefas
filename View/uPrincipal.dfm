@@ -2,12 +2,12 @@ object frmPrincipal: TfrmPrincipal
   Left = 0
   Top = 0
   Caption = 'Tela Principal'
-  ClientHeight = 388
-  ClientWidth = 799
+  ClientHeight = 634
+  ClientWidth = 1259
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -14
+  Font.Height = -18
   Font.Name = 'Tahoma'
   Font.Style = []
   Menu = menuPrincipal
@@ -15,18 +15,22 @@ object frmPrincipal: TfrmPrincipal
   Position = poScreenCenter
   OnShow = FormShow
   PixelsPerInch = 96
-  TextHeight = 17
+  TextHeight = 22
   object statusBar: TStatusBar
     Left = 0
-    Top = 360
-    Width = 799
-    Height = 28
+    Top = 599
+    Width = 1259
+    Height = 35
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     Panels = <
       item
-        Width = 250
+        Width = 313
       end
       item
-        Width = 100
+        Width = 125
       end>
   end
   object menuPrincipal: TMainMenu

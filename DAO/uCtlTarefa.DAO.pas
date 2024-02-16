@@ -14,6 +14,7 @@ type
     property Conexao: TDM read FConexao write FConexao;
     function Pesquisa(oCtlTarefa: TCtlTarefa): TClientDataSet;
     function Novo(oCtlTarefa: TCtlTarefa): Boolean;
+    function LimparTarefa(oCtlTarefa: TCtlTarefa): Boolean;
   end;
 
 implementation
@@ -26,6 +27,28 @@ uses
 constructor TCtlTarefaDAO.Create;
 begin
   Conexao := TDM.Create;
+end;
+
+function TCtlTarefaDAO.LimparTarefa(oCtlTarefa: TCtlTarefa): Boolean;
+var
+  sqlLimpar: TSQLQuery;
+begin
+  sqlLimpar := TSQLQuery.Create(nil);
+  sqlLimpar := Conexao.getConexao(sqlLimpar);
+  sqlLimpar.CommandText := 'DELETE FROM USUARIO_TAREFA WHERE' +
+    IntToStr(oCtlTarefa.Usuario);
+  try
+    sqlLimpar.ExecSQL();
+    Result := True;
+  except
+    on E: Exception do
+    begin
+      raise Exception.Create('Error Message' + E.Message);
+      Result := False;
+    end;
+
+  end;
+
 end;
 
 function TCtlTarefaDAO.Novo(oCtlTarefa: TCtlTarefa): Boolean;
@@ -63,8 +86,7 @@ begin
   try
 
     sqlPesquisa := Conexao.getConexao(sqlPesquisa);
-    sqlPesquisa.CommandText :=
-      'SELECT * FROM VW_TAREFA_USUARIO ' +
+    sqlPesquisa.CommandText := 'SELECT * FROM VW_TAREFA_USUARIO ' +
       'WHERE  COD_USUARIO= ' + IntToStr(oCtlTarefa.Usuario);
     dspPesquisa.DataSet := sqlPesquisa;
     cdsPesquisa.SetProvider(dspPesquisa);
